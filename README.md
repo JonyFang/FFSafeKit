@@ -6,8 +6,8 @@ Using NSArray, NSMutableArray, NSDictionary, NSMutableDictionary, NSMutableStrin
 ## Features
 
 - Safely access `NSArray` 
-- Safely access & perform changes to `NSMutableArray`
 - Safely access `NSDictionary`
+- Safely access & perform changes to `NSMutableArray`
 - Safely access & perform changes to `NSMutableDictionary`
 - Safely access & perform changes to `NSMutableString`
 
@@ -113,13 +113,13 @@ Import the library where you want to use it.
 
 ## What's FFSafeKit ?
 
-- NSArray
-- NSMutableArray
-- NSDictionary
-- NSMutableDictionary
-- NSMutableString
+- NSArray+FFSafeKit
+- NSMutableArray+FFSafeKit
+- NSDictionary+FFSafeKit
+- NSMutableDictionary+FFSafeKit
+- NSMutableString+FFSafeKit
 
-### NSArray
+### NSArray+FFSafeKit
 
 ```objc
 /**
@@ -156,7 +156,7 @@ Import the library where you want to use it.
 ```
 
 
-### NSMutableArray
+### NSMutableArray+FFSafeKit
 
 ```objc
 /**
@@ -200,7 +200,7 @@ Import the library where you want to use it.
 - (id)safeMutable_objectAtIndexedSubscript:(NSUInteger)index;
 ```
 
-### NSDictionary
+### NSDictionary+FFSafeKit
 
 ```objc
 /**
@@ -214,7 +214,7 @@ Import the library where you want to use it.
 - (instancetype)initWithObjects_safe:(id *)objects forKeys:(id<NSCopying> *)keys count:(NSUInteger)count;
 ```
 
-### NSMutableDictionary
+### NSMutableDictionary+FFSafeKit
 
 ```objc
 /**
@@ -235,7 +235,7 @@ Import the library where you want to use it.
 - (void)safeMutable_setObject:(id)object forKey:(id<NSCopying>)key;
 ```
 
-### NSMutableString
+### NSMutableString+FFSafeKit
 
 ```objc
 /**
