@@ -1,8 +1,8 @@
 ![FFSafeKit](/Resources/ffsafekit-logo.png)
 
 <p align="center">
-    <a href="https://travis-ci.org/JonyFang/FFPopup">
-        <img src="https://travis-ci.org/JonyFang/FFPopup.svg?branch=master" alt="CI Status">
+    <a href="https://travis-ci.org/JonyFang/FFSafeKit">
+        <img src="https://travis-ci.org/JonyFang/FFSafeKit.svg?branch=master" alt="CI Status">
     </a>
 	<a href="http://cocoapods.org/pods/FFSafeKit">
         <img src="https://img.shields.io/cocoapods/v/FFSafeKit.svg" alt="Cocoapods Version">
