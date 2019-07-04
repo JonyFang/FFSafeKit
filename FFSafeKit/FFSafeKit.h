@@ -6,14 +6,25 @@
 //  Copyright © 2019 JonyFang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-//! Project version number for FFSafeKit.
+#if __has_include(<FFSafeKit/FFSafeKit.h>)
+
 FOUNDATION_EXPORT double FFSafeKitVersionNumber;
-
-//! Project version string for FFSafeKit.
 FOUNDATION_EXPORT const unsigned char FFSafeKitVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <FFSafeKit/PublicHeader.h>
+#import <FFSafeKit/NSArray+FFSafeKit.h>
+#import <FFSafeKit/NSMutableArray+FFSafeKit.h>
+#import <FFSafeKit/NSDictionary+FFSafeKit.h>
+#import <FFSafeKit/NSMutableDictionary+FFSafeKit.h>
+#import <FFSafeKit/NSMutableString+FFSafeKit.h>
 
+#else
 
+#import "NSArray+FFSafeKit.h"
+#import "NSMutableArray+FFSafeKit.h"
+#import "NSDictionary+FFSafeKit.h"
+#import "NSMutableDictionary+FFSafeKit.h"
+#import "NSMutableString+FFSafeKit.h"
+
+#endif
