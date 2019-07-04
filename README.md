@@ -3,7 +3,7 @@
 
 ## How to use FFSafeKit ?
 
-Just import the library where you want to use it.
+Just import the library where you want to use it, then it will work automatically. No longer have to add any other code.
 
 ```objc
 #import "FFSafeKit.h"
