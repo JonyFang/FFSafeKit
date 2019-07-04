@@ -13,11 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (FFSafeImp)
 
 /**
- 交换两个函数实现指针，参数均为 NSString 类型
- @param systemMethodString 系统方法名
- @param systemClassString 系统实现方法类名
- @param safeMethodString 自定义hook方法名
- @param targetClassString 目标实现类名
+ Exchanges the implementations of two methods.
+ 
+ @param systemMethodString System method name.
+ @param systemClassString System class name.
+ @param safeMethodString Safe-custom method name.
+ @param targetClassString Target class name.
  */
 + (void)ff_swizzlingMethod:(NSString *)systemMethodString
          systemClassString:(NSString *)systemClassString
