@@ -1,7 +1,31 @@
+![FFSafeKit](/Resources/ffsafekit-logo.png)
 
-# FFSafeKit
+<p align="center">
+    <a href="https://travis-ci.org/JonyFang/FFPopup">
+        <img src="https://travis-ci.org/JonyFang/FFPopup.svg?branch=master" alt="CI Status">
+    </a>
+	<a href="http://cocoapods.org/pods/FFSafeKit">
+        <img src="https://img.shields.io/cocoapods/v/FFSafeKit.svg" alt="Cocoapods Version">
+    </a>
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible">
+    </a>
+    <a href="http://cocoapods.org/pods/FFSafeKit">
+        <img src="https://img.shields.io/cocoapods/p/FFSafeKit.svg" alt="Platform">
+    </a>
+    <a href="LICENSE">
+        <img src="https://img.shields.io/cocoapods/l/FFSafeKit.svg" alt="MIT License">
+    </a>
+    <a href="https://github.com/jonyfang/FFSafeKit/issues">
+        <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="FFSafeKit Issues">
+    </a>
+    <a href="http://twitter.com/jony_chunfang">
+        <img src="https://img.shields.io/badge/twitter-@JonyFang-blue.svg?style=flat" alt="Twitter">
+    </a>
+</p>
 
-Using NSArray, NSMutableArray, NSDictionary, NSMutableDictionary, NSMutableString safely by `FFSafeKit`.
+<p align="center">Using NSArray, NSMutableArray, NSDictionary, NSMutableDictionary, NSMutableString safely by FFSafeKit.</p>
+
 
 ## Features
 
