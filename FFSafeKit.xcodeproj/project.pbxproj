@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3633EF122CEF211008F8F26 /* FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC4A22CDE00600E68FA8 /* FFSafeKit.h */; };
 		D3CEAC5122CDE00600E68FA8 /* FFSafeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CEAC4722CDE00600E68FA8 /* FFSafeKit.framework */; };
 		D3CEAC5622CDE00600E68FA8 /* FFSafeKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC5522CDE00600E68FA8 /* FFSafeKitTests.m */; };
-		D3CEAC5822CDE00600E68FA8 /* FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC4A22CDE00600E68FA8 /* FFSafeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3CEAC7022CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6222CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h */; };
 		D3CEAC7122CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6322CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m */; };
 		D3CEAC7222CDE17E00E68FA8 /* NSObject+FFSafeImp.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6422CDE17E00E68FA8 /* NSObject+FFSafeImp.h */; };
@@ -145,9 +145,9 @@
 			files = (
 				D3CEAC7822CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.h in Headers */,
 				D3CEAC7222CDE17E00E68FA8 /* NSObject+FFSafeImp.h in Headers */,
-				D3CEAC5822CDE00600E68FA8 /* FFSafeKit.h in Headers */,
 				D3CEAC7622CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.h in Headers */,
 				D3CEAC7022CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h in Headers */,
+				D3633EF122CEF211008F8F26 /* FFSafeKit.h in Headers */,
 				D3CEAC7322CDE17E00E68FA8 /* NSDictionary+FFSafeKit.h in Headers */,
 				D3CEAC7922CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h in Headers */,
 				D3CEAC7D22CDE17E00E68FA8 /* NSArray+FFSafeKit.h in Headers */,
@@ -456,6 +456,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonyfang.FFSafeKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -473,6 +474,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonyfang.FFSafeKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
