@@ -22,23 +22,23 @@
         NSString *safeObjectAtIndexStr = @"safe_objectAtIndex:";
         NSString *safeSingleObjectAtIndexStr = @"safe_singleObjectAtIndex:";
         
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArray0")
-                                        originalSelector:NSSelectorFromString(objectAtIndexStr)
-                                        swizzledSelector:NSSelectorFromString(safeZeroObjectAtIndexStr)];
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSSingleObjectArrayI")
-                                        originalSelector:NSSelectorFromString(objectAtIndexStr)
-                                        swizzledSelector:NSSelectorFromString(safeSingleObjectAtIndexStr)];
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArrayI")
-                                        originalSelector:NSSelectorFromString(objectAtIndexStr)
-                                        swizzledSelector:NSSelectorFromString(safeObjectAtIndexStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArray0")
+                                  originalSelector:NSSelectorFromString(objectAtIndexStr)
+                                       newSelector:NSSelectorFromString(safeZeroObjectAtIndexStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSSingleObjectArrayI")
+                                  originalSelector:NSSelectorFromString(objectAtIndexStr)
+                                       newSelector:NSSelectorFromString(safeSingleObjectAtIndexStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayI")
+                                  originalSelector:NSSelectorFromString(objectAtIndexStr)
+                                       newSelector:NSSelectorFromString(safeObjectAtIndexStr)];
         
         //Exchange `objectAtIndexedSubscript:`
         NSString *objectAtIndexedSubcriptStr = @"objectAtIndexedSubscript:";
         NSString *safeObjectAtIndexedSubscriptStr = @"safe_objectAtIndexedSubscript:";
         
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArrayI")
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayI")
                                         originalSelector:NSSelectorFromString(objectAtIndexedSubcriptStr)
-                                        swizzledSelector:NSSelectorFromString(safeObjectAtIndexedSubscriptStr)];
+                                        newSelector:NSSelectorFromString(safeObjectAtIndexedSubscriptStr)];
     });
     
 }

@@ -19,16 +19,16 @@
         //Exchange `removeObjectForKey:`
         NSString *removeObjectForKeyStr = @"removeObjectForKey:";
         NSString *safeRemoveObjectForKeyStr = @"safeMutable_removeObjectForKey:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSDictionaryM")
-                                        originalSelector:NSSelectorFromString(removeObjectForKeyStr)
-                                        swizzledSelector:NSSelectorFromString(safeRemoveObjectForKeyStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSDictionaryM")
+                                  originalSelector:NSSelectorFromString(removeObjectForKeyStr)
+                                       newSelector:NSSelectorFromString(safeRemoveObjectForKeyStr)];
         
         //Exchange `setObject:forKey:`
         NSString *setObjectForKeyStr = @"setObject:forKey:";
         NSString *safeSetObjectForKeyStr = @"safeMutable_setObject:forKey:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSDictionaryM")
-                                        originalSelector:NSSelectorFromString(setObjectForKeyStr)
-                                        swizzledSelector:NSSelectorFromString(safeSetObjectForKeyStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSDictionaryM")
+                                  originalSelector:NSSelectorFromString(setObjectForKeyStr)
+                                       newSelector:NSSelectorFromString(safeSetObjectForKeyStr)];
     });
     
 }

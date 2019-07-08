@@ -18,37 +18,37 @@
         //Exchange `substringFromIndex:`
         NSString *tmpSubFromStr = @"substringFromIndex:";
         NSString *tmpSafeSubFromStr = @"safeMutable_substringFromIndex:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSCFString")
-                                        originalSelector:NSSelectorFromString(tmpSubFromStr)
-                                        swizzledSelector:NSSelectorFromString(tmpSafeSubFromStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
+                                  originalSelector:NSSelectorFromString(tmpSubFromStr)
+                                       newSelector:NSSelectorFromString(tmpSafeSubFromStr)];
         
         //Exchange `substringToIndex:`
         NSString *tmpSubToStr = @"substringToIndex:";
         NSString *tmpSafeSubToStr = @"safeMutable_substringToIndex:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSCFString")
-                                        originalSelector:NSSelectorFromString(tmpSubToStr)
-                                        swizzledSelector:NSSelectorFromString(tmpSafeSubToStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
+                                  originalSelector:NSSelectorFromString(tmpSubToStr)
+                                       newSelector:NSSelectorFromString(tmpSafeSubToStr)];
         
         //Exchange `substringWithRange:`
         NSString *tmpSubRangeStr = @"substringWithRange:";
         NSString *tmpSafeSubRangeStr = @"safeMutable_substringWithRange:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSCFString")
-                                        originalSelector:NSSelectorFromString(tmpSubRangeStr)
-                                        swizzledSelector:NSSelectorFromString(tmpSafeSubRangeStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
+                                  originalSelector:NSSelectorFromString(tmpSubRangeStr)
+                                       newSelector:NSSelectorFromString(tmpSafeSubRangeStr)];
         
         //Exchange `rangeOfString:options:range:locale:`
         NSString *tmpRangeOfStr = @"rangeOfString:options:range:locale:";
         NSString *tmpSafeRangeOfStr = @"safeMutable_rangeOfString:options:range:locale:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSCFString")
-                                        originalSelector:NSSelectorFromString(tmpRangeOfStr)
-                                        swizzledSelector:NSSelectorFromString(tmpSafeRangeOfStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
+                                  originalSelector:NSSelectorFromString(tmpRangeOfStr)
+                                       newSelector:NSSelectorFromString(tmpSafeRangeOfStr)];
         
         //Exchange `appendString:`
         NSString *tmpAppendStr = @"appendString:";
         NSString *tmpSafeAppendStr = @"safeMutable_appendString:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSCFString")
-                                        originalSelector:NSSelectorFromString(tmpAppendStr)
-                                        swizzledSelector:NSSelectorFromString(tmpSafeAppendStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
+                                  originalSelector:NSSelectorFromString(tmpAppendStr)
+                                       newSelector:NSSelectorFromString(tmpSafeAppendStr)];
     });
 }
 

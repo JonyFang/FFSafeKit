@@ -19,37 +19,37 @@
         //Exchange `objectAtIndex:`
         NSString *objectAtIndexStr = @"objectAtIndex:";
         NSString *safeObjectAtIndexStr = @"safeMutable_objectAtIndex:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArrayM")
-                                        originalSelector:NSSelectorFromString(objectAtIndexStr)
-                                        swizzledSelector:NSSelectorFromString(safeObjectAtIndexStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayM")
+                                  originalSelector:NSSelectorFromString(objectAtIndexStr)
+                                       newSelector:NSSelectorFromString(safeObjectAtIndexStr)];
         
         //Exchange `removeObjectsInRange:`
         NSString *removeObjectsInRangeStr = @"removeObjectsInRange:";
         NSString *safeRemoveObjectsInRangeStr = @"safeMutable_removeObjectsInRange:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArrayM")
-                                        originalSelector:NSSelectorFromString(removeObjectsInRangeStr)
-                                        swizzledSelector:NSSelectorFromString(safeRemoveObjectsInRangeStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayM")
+                                  originalSelector:NSSelectorFromString(removeObjectsInRangeStr)
+                                       newSelector:NSSelectorFromString(safeRemoveObjectsInRangeStr)];
         
         //Exchange `insertObject:atIndex:`
         NSString *insetAtIndexStr = @"insertObject:atIndex:";
         NSString *safeInsetAtIndexStr = @"safeMutable_insertObject:atIndex:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArrayM")
-                                        originalSelector:NSSelectorFromString(insetAtIndexStr)
-                                        swizzledSelector:NSSelectorFromString(safeInsetAtIndexStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayM")
+                                  originalSelector:NSSelectorFromString(insetAtIndexStr)
+                                       newSelector:NSSelectorFromString(safeInsetAtIndexStr)];
         
         //Exchange `removeObject:inRange:`
         NSString *removeInRangeStr = @"removeObject:inRange:";
         NSString *safeRemoveInRangeStr = @"safeMutable_removeObject:inRange:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArrayM")
-                                        originalSelector:NSSelectorFromString(removeInRangeStr)
-                                        swizzledSelector:NSSelectorFromString(safeRemoveInRangeStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayM")
+                                  originalSelector:NSSelectorFromString(removeInRangeStr)
+                                       newSelector:NSSelectorFromString(safeRemoveInRangeStr)];
         
         //Exchange `objectAtIndexedSubscript:`
         NSString *objectAtIndexedSubscriptStr = @"objectAtIndexedSubscript:";
         NSString *safeObjectAtIndexedSubscriptStr = @"safeMutable_objectAtIndexedSubscript:";
-        [NSObject ff_exchangeInstanceMethodWithSelfClass:NSClassFromString(@"__NSArrayM")
-                                        originalSelector:NSSelectorFromString(objectAtIndexedSubscriptStr)
-                                        swizzledSelector:NSSelectorFromString(safeObjectAtIndexedSubscriptStr)];
+        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayM")
+                                  originalSelector:NSSelectorFromString(objectAtIndexedSubscriptStr)
+                                       newSelector:NSSelectorFromString(safeObjectAtIndexedSubscriptStr)];
     });
     
 }

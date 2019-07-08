@@ -13,15 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (FFSafeSwizzling)
 
 /**
- Replaces the implementation of a method for a given class, or exchanges the implementations of two methods.
+ If new-method is added to a class, exchange the implementations of `originalSel` for `newSel`.
  
- @param selfClass The class you want to inspect.
- @param originalSelector The selector of the method you want to retrieve.
- @param swizzledSelector The swizzled selector of the method you want to retrieve.
+ @param cls The class you want to inspect.
+ @param originalSel The selector of the original-method.
+ @param newSel The selector of the new-method.
  */
-+ (void)ff_exchangeInstanceMethodWithSelfClass:(Class)selfClass
-                              originalSelector:(SEL)originalSelector
-                              swizzledSelector:(SEL)swizzledSelector;
++ (void)ff_exchangeInstanceMethodOfClass:(Class)cls
+                        originalSelector:(SEL)originalSel
+                             newSelector:(SEL)newSel;
 
 @end
 

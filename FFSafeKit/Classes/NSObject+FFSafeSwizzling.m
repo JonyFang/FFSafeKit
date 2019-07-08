@@ -11,20 +11,18 @@
 
 @implementation NSObject (FFSafeSwizzling)
 
-+ (void)ff_exchangeInstanceMethodWithSelfClass:(Class)selfClass
-                              originalSelector:(SEL)originalSelector
-                              swizzledSelector:(SEL)swizzledSelector {
-    Method originalMethod = class_getInstanceMethod(selfClass, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(selfClass, swizzledSelector);
-    BOOL didAddMethod = class_addMethod(selfClass, originalSelector,
-                                        method_getImplementation(swizzledMethod),
-                                        method_getTypeEncoding(swizzledMethod));
-    if (didAddMethod) {
-        class_replaceMethod(selfClass, swizzledSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
++ (void)ff_exchangeInstanceMethodOfClass:(Class)cls
+                        originalSelector:(SEL)originalSel
+                             newSelector:(SEL)newSel {
+    Method originalMethod = class_getInstanceMethod(cls, originalSel);
+    Method newMethod = class_getInstanceMethod(cls, newSel);
+    
+    //YES if the method was added successfully, otherwise NO.
+    BOOL isAdded = class_addMethod(cls, originalSel, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
+    if (isAdded) {
+        class_replaceMethod(cls, newSel, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
+        method_exchangeImplementations(originalMethod, newMethod);
     }
 }
 
