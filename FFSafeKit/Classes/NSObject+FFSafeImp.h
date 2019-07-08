@@ -13,12 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (FFSafeImp)
 
 /**
- Exchanges the implementations of two methods.
+ Exchanges the implementations of system-method for safe-method.
  
- @param systemMethodString System method name.
- @param systemClassString System class name.
- @param safeMethodString Safe-custom method name.
- @param targetClassString Target class name.
+ @param systemMethodString The system selector of the method you want to retrieve.
+ @param systemClassString The system class you want to inspect.
+ @param safeMethodString The safe selector of the method you want to retrieve.
+ @param targetClassString The safe class you want to inspect.
  */
 + (void)ff_swizzlingMethod:(NSString *)systemMethodString
          systemClassString:(NSString *)systemClassString
