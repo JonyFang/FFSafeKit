@@ -17,12 +17,22 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class cls = NSClassFromString(@"__NSDictionaryM");
+        
+        //Exchange `setObject:forKey:`
         [NSObject ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(setObject:forKey:) newSelector:@selector(ff_setObject:forKey:)];
+        
+        //Exchange `setObject:forKeyedSubscript:`
         [NSObject ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(setObject:forKeyedSubscript:) newSelector:@selector(ff_setObject:forKeyedSubscript:)];
+        
+        //Exchange `removeObjectForKey:`
         [NSObject ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(removeObjectForKey:) newSelector:@selector(ff_removeObjectForKey:)];
         
         Class cfCls = NSClassFromString(@"__NSCFDictionary");
+        
+        //Exchange `setObject:forKey:`
         [self ff_exchangeInstanceMethodOfClass:cfCls originalSelector:@selector(setObject:forKey:) newSelector:@selector(ff_setCFDictionary:forKey:)];
+        
+        //Exchange `removeObjectForKey:`
         [self ff_exchangeInstanceMethodOfClass:cfCls originalSelector:@selector(removeObjectForKey:) newSelector:@selector(ff_removeCFDictionaryForKey:)];
     });
     
@@ -37,10 +47,12 @@
  @param key The key for value.
  */
 - (void)ff_setObject:(id)object forKey:(id<NSCopying>)key {
-    if (!object || !key) {
-        return;
+    @try {
+        [self ff_setObject:object forKey:key];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
     }
-    return [self ff_setObject:object forKey:key];
 }
 
 /**
@@ -51,10 +63,12 @@
  @param key The key for value.
  */
 - (void)ff_setObject:(id)object forKeyedSubscript:(id<NSCopying>)key {
-    if (!object || !key) {
-        return;
+    @try {
+        [self ff_setObject:object forKeyedSubscript:key];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
     }
-    return [self ff_setObject:object forKeyedSubscript:key];
 }
 
 /**
@@ -64,10 +78,12 @@
  @param key The key to remove.
  */
 - (void)ff_removeObjectForKey:(id)key {
-    if (!key) {
-        return;
+    @try {
+        [self ff_removeObjectForKey:key];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
     }
-    [self ff_removeObjectForKey:key];
 }
 
 /**
@@ -78,10 +94,12 @@
  @param key The key for value.
  */
 - (void)ff_setCFDictionary:(id)dict forKey:(id<NSCopying>)key {
-    if (!dict || !key) {
-        return;
+    @try {
+        [self ff_setCFDictionary:dict forKey:key];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
     }
-    return [self ff_setCFDictionary:dict forKey:key];
 }
 
 /**
@@ -91,10 +109,12 @@
  @param key The key to remove.
  */
 - (void)ff_removeCFDictionaryForKey:(id)key {
-    if (!key) {
-        return;
+    @try {
+        [self ff_removeCFDictionaryForKey:key];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
     }
-    [self ff_removeCFDictionaryForKey:key];
 }
 
 

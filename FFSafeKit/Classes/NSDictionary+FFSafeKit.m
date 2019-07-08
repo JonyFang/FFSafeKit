@@ -16,8 +16,13 @@
 + (void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSPlaceholderDictionary") originalSelector:@selector(initWithObjects:forKeys:count:) newSelector:@selector(ff_initWithObjects:forKeys:count:)];
-        [self ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSPlaceholderDictionary") originalSelector:@selector(initWithObjects:forKeys:) newSelector:@selector(ff_initWithObjects:forKeys:)];
+        Class cls = NSClassFromString(@"__NSPlaceholderDictionary");
+        
+        //Exchange `initWithObjects:forKeys:count:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(initWithObjects:forKeys:count:) newSelector:@selector(ff_initWithObjects:forKeys:count:)];
+        
+        //Exchange `initWithObjects:forKeys:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(initWithObjects:forKeys:) newSelector:@selector(ff_initWithObjects:forKeys:)];
     });
 }
 
@@ -30,24 +35,30 @@
  @param keys An array containing the keys for the new dictionary.
  */
 - (instancetype)ff_initWithObjects:(NSArray *)objects forKeys:(NSArray<id<NSCopying>> *)keys {
-    NSUInteger count = MIN(objects.count, keys.count);
-    NSMutableArray *newKeys = [NSMutableArray array];
-    NSMutableArray *newObjects = [NSMutableArray array];
-    
-    for (NSUInteger i = 0; i < count; i++) {
-        id key = keys[i];
-        id object = objects[i];
-        if (!key) {
-            continue;
+    id dict = nil;
+    @try {
+        dict = [self ff_initWithObjects:objects forKeys:keys];
+    } @catch (NSException *exception) {
+        NSUInteger count = MIN(objects.count, keys.count);
+        NSMutableArray *newKeys = [NSMutableArray array];
+        NSMutableArray *newObjects = [NSMutableArray array];
+        for (NSUInteger i = 0; i < count; i++) {
+            id key = keys[i];
+            id object = objects[i];
+            if (!key) {
+                continue;
+            }
+            if (!object) {
+                continue;
+                //object = [NSNull null];
+            }
+            [newKeys addObject:key];
+            [newObjects addObject:object];
         }
-        if (!object) {
-            object = [NSNull null];
-        }
-        [newKeys addObject:key];
-        [newObjects addObject:object];
+        dict = [self ff_initWithObjects:newObjects forKeys:newKeys];
+    } @finally {
+        return dict;
     }
-    
-    return [self ff_initWithObjects:newObjects forKeys:newKeys];
 }
 
 /**
@@ -59,25 +70,32 @@
  @param cnt The number of elements to use from the keys and objects arrays. count must not exceed the number of elements in objects or keys.
  */
 - (instancetype)ff_initWithObjects:(id  _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt {
-    id newKeys[cnt];
-    id newObjects[cnt];
-    NSUInteger index = 0;
-    
-    for (NSUInteger i = 0; i < cnt; i++) {
-        id key = keys[i];
-        id object = objects[i];
-        if (!key) {
-            continue;
+    id dict = nil;
+    @try {
+        dict = [self ff_initWithObjects:objects forKeys:keys count:cnt];
+    } @catch (NSException *exception) {
+        id newKeys[cnt];
+        id newObjects[cnt];
+        NSUInteger index = 0;
+        
+        for (NSUInteger i = 0; i < cnt; i++) {
+            id key = keys[i];
+            id object = objects[i];
+            if (!key) {
+                continue;
+            }
+            if (!object) {
+                continue;
+                //object = [NSNull null];
+            }
+            newKeys[index] = key;
+            newObjects[index] = object;
+            index++;
         }
-        if (!object) {
-            object = [NSNull null];
-        }
-        newKeys[index] = key;
-        newObjects[index] = object;
-        index++;
+        dict = [self ff_initWithObjects:newObjects forKeys:newKeys count:index];
+    } @finally {
+        return dict;
     }
-    
-    return [self ff_initWithObjects:newObjects forKeys:newKeys count:index];
 }
 
 @end

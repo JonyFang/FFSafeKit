@@ -184,11 +184,9 @@
     unichar character;
     @try {
         character = [self ff_characterAtIndex:index];
-    }
-    @catch (NSException *exception) {
+    } @catch (NSException *exception) {
         //
-    }
-    @finally {
+    } @finally {
         return character;
     }
 }
@@ -208,11 +206,9 @@
     NSString *safeStr = nil;
     @try {
         safeStr = [self ff_stringByReplacingOccurrencesOfString:target withString:replacement options:options range:searchRange];
-    }
-    @catch (NSException *exception) {
+    } @catch (NSException *exception) {
         //
-    }
-    @finally {
+    } @finally {
         return safeStr;
     }
 }
@@ -230,11 +226,9 @@
     NSString *safeStr = nil;
     @try {
         safeStr = [self ff_stringByReplacingOccurrencesOfString:target withString:replacement];
-    }
-    @catch (NSException *exception) {
+    } @catch (NSException *exception) {
         //
-    }
-    @finally {
+    } @finally {
         return safeStr;
     }
 }
@@ -252,11 +246,9 @@
     NSString *safeStr = nil;
     @try {
         safeStr = [self ff_stringByReplacingCharactersInRange:range withString:replacement];
-    }
-    @catch (NSException *exception) {
+    } @catch (NSException *exception) {
         //
-    }
-    @finally {
+    } @finally {
         return safeStr;
     }
 }
@@ -271,11 +263,9 @@
 - (void)ff_replaceCharactersInRange:(NSRange)range withString:(NSString *)string {
     @try {
         [self ff_replaceCharactersInRange:range withString:string];
-    }
-    @catch (NSException *exception) {
+    } @catch (NSException *exception) {
         //
-    }
-    @finally {
+    } @finally {
     }
 }
 

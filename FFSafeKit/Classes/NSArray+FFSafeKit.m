@@ -16,84 +16,117 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        //Exchange `objectAtIndex`
-        NSString *objectAtIndexStr = @"objectAtIndex:";
-        NSString *safeZeroObjectAtIndexStr = @"safe_zeroObjectAtIndex:";
-        NSString *safeObjectAtIndexStr = @"safe_objectAtIndex:";
-        NSString *safeSingleObjectAtIndexStr = @"safe_singleObjectAtIndex:";
+        Class clsS = NSClassFromString(@"__NSSingleObjectArrayI");
+        Class clsP = NSClassFromString(@"__NSPlaceholderArray");
+        Class clsI = NSClassFromString(@"__NSArrayI");
+        Class cls0 = NSClassFromString(@"__NSArray0");
         
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArray0")
-                                  originalSelector:NSSelectorFromString(objectAtIndexStr)
-                                       newSelector:NSSelectorFromString(safeZeroObjectAtIndexStr)];
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSSingleObjectArrayI")
-                                  originalSelector:NSSelectorFromString(objectAtIndexStr)
-                                       newSelector:NSSelectorFromString(safeSingleObjectAtIndexStr)];
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayI")
-                                  originalSelector:NSSelectorFromString(objectAtIndexStr)
-                                       newSelector:NSSelectorFromString(safeObjectAtIndexStr)];
+        //Exchange `initWithObjects:count:`
+        [self ff_exchangeInstanceMethodOfClass:clsP originalSelector:@selector(initWithObjects:count:) newSelector:@selector(ff_initWithObjects:count:)];
+        
+        //Exchange `objectAtIndex:`
+        [self ff_exchangeInstanceMethodOfClass:clsI originalSelector:@selector(objectAtIndex:) newSelector:@selector(ff_IObjectAtIndex:)];
+        [self ff_exchangeInstanceMethodOfClass:cls0 originalSelector:@selector(objectAtIndex:) newSelector:@selector(ff_0ObjectAtIndex:)];
+        [self ff_exchangeInstanceMethodOfClass:clsS originalSelector:@selector(objectAtIndex:) newSelector:@selector(ff_sObjectAtIndex:)];
         
         //Exchange `objectAtIndexedSubscript:`
-        NSString *objectAtIndexedSubcriptStr = @"objectAtIndexedSubscript:";
-        NSString *safeObjectAtIndexedSubscriptStr = @"safe_objectAtIndexedSubscript:";
-        
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSArrayI")
-                                        originalSelector:NSSelectorFromString(objectAtIndexedSubcriptStr)
-                                        newSelector:NSSelectorFromString(safeObjectAtIndexedSubscriptStr)];
+        [self ff_exchangeInstanceMethodOfClass:clsI originalSelector:@selector(objectAtIndexedSubscript:) newSelector:@selector(ff_IObjectAtIndexedSubscript:)];
     });
     
 }
 
-#pragma mark - Implement Methods
 /**
- Returns the object(from `__NSArrayI`) located at index, or return nil when out of bounds.
- It's similar to `objectAtIndex:`, but it never throw exception.
+ Initializes a newly allocated array to include a given number of objects from a given C array.
+ It's similar to `initWithObjects:count:`, but it never throw exception.
  
- @param index The object located at index.
+ @param objects A C array of objects.
+ @param cnt The number of values from the objects C array to include in the new array.
  */
-- (id)safe_objectAtIndex:(NSUInteger)index {
-    if (index >= self.count) {
-        return nil;
+- (instancetype)ff_initWithObjects:(id  _Nonnull const [])objects count:(NSUInteger)cnt {
+    id arr = nil;
+    @try {
+        arr = [self ff_initWithObjects:objects count:cnt];
+    } @catch (NSException *exception) {
+        NSUInteger index = 0;
+        id newArr[cnt];
+        for (int i = 0; i < cnt; i++) {
+            if (objects[i]) {
+                newArr[index] = objects[i];
+                index++;
+            }
+        }
+        arr = [self ff_initWithObjects:newArr count:index];
+    } @finally {
+        return arr;
     }
-    return [self safe_objectAtIndex:index];
 }
 
 /**
- Returns the object(from `__NSSingleObjectArrayI`) located at index, or return nil when out of bounds.
+ Returns the object located at the specified index.
  It's similar to `objectAtIndex:`, but it never throw exception.
  
- @param index The object located at index.
+ @param index An index within the bounds of the array.
  */
-- (id)safe_singleObjectAtIndex:(NSUInteger)index {
-    if (index >= self.count) {
-        return nil;
+- (id)ff_IObjectAtIndex:(NSUInteger)index {
+    id object = nil;
+    @try {
+        object = [self ff_IObjectAtIndex:index];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return object;
     }
-    return [self safe_singleObjectAtIndex:index];
 }
 
 /**
- Returns the object(from `__NSArray0`) located at index, or return nil when out of bounds.
+ Returns the object located at the specified index.
  It's similar to `objectAtIndex:`, but it never throw exception.
  
- @param index The object located at index.
+ @param index An index within the bounds of the array.
  */
-- (id)safe_zeroObjectAtIndex:(NSUInteger)index {
-    if (index >= self.count) {
-        return nil;
+- (id)ff_0ObjectAtIndex:(NSUInteger)index {
+    id object = nil;
+    @try {
+        object = [self ff_0ObjectAtIndex:index];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return object;
     }
-    return [self safe_zeroObjectAtIndex:index];
 }
 
 /**
- Returns the object(from `__NSArrayI`) at the specified index, or return nil when out of bounds.
+ Returns the object located at the specified index.
+ It's similar to `objectAtIndex:`, but it never throw exception.
+ 
+ @param index An index within the bounds of the array.
+ */
+- (id)ff_sObjectAtIndex:(NSUInteger)index {
+    id object = nil;
+    @try {
+        object = [self ff_sObjectAtIndex:index];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return object;
+    }
+}
+
+/**
+ Returns the object at the specified index.
  It's similar to `objectAtIndexedSubscript:`, but it never throw exception.
  
- @param index The object located at index.
+ @param index An index within the bounds of the array.
  */
-- (id)safe_objectAtIndexedSubscript:(NSUInteger)index {
-    if (index >= self.count) {
-        return nil;
+- (id)ff_IObjectAtIndexedSubscript:(NSUInteger)index {
+    id object = nil;
+    @try {
+        object = [self ff_IObjectAtIndexedSubscript:index];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return object;
     }
-    return [self safe_objectAtIndexedSubscript:index];
 }
 
 @end
