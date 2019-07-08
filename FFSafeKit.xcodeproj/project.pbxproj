@@ -12,7 +12,6 @@
 		D3CEAC5622CDE00600E68FA8 /* FFSafeKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC5522CDE00600E68FA8 /* FFSafeKitTests.m */; };
 		D3CEAC7022CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6222CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h */; };
 		D3CEAC7122CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6322CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m */; };
-		D3CEAC7222CDE17E00E68FA8 /* NSObject+FFSafeImp.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6422CDE17E00E68FA8 /* NSObject+FFSafeImp.h */; };
 		D3CEAC7322CDE17E00E68FA8 /* NSDictionary+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6522CDE17E00E68FA8 /* NSDictionary+FFSafeKit.h */; };
 		D3CEAC7422CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6622CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m */; };
 		D3CEAC7522CDE17E00E68FA8 /* NSArray+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6722CDE17E00E68FA8 /* NSArray+FFSafeKit.m */; };
@@ -21,7 +20,6 @@
 		D3CEAC7822CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6A22CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.h */; };
 		D3CEAC7922CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6B22CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h */; };
 		D3CEAC7A22CDE17E00E68FA8 /* NSDictionary+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6C22CDE17E00E68FA8 /* NSDictionary+FFSafeKit.m */; };
-		D3CEAC7B22CDE17E00E68FA8 /* NSObject+FFSafeImp.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6D22CDE17E00E68FA8 /* NSObject+FFSafeImp.m */; };
 		D3CEAC7C22CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6E22CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.m */; };
 		D3CEAC7D22CDE17E00E68FA8 /* NSArray+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6F22CDE17E00E68FA8 /* NSArray+FFSafeKit.h */; };
 /* End PBXBuildFile section */
@@ -45,7 +43,6 @@
 		D3CEAC5722CDE00600E68FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3CEAC6222CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+FFSafeKit.h"; sourceTree = "<group>"; };
 		D3CEAC6322CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+FFSafeKit.m"; sourceTree = "<group>"; };
-		D3CEAC6422CDE17E00E68FA8 /* NSObject+FFSafeImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FFSafeImp.h"; sourceTree = "<group>"; };
 		D3CEAC6522CDE17E00E68FA8 /* NSDictionary+FFSafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FFSafeKit.h"; sourceTree = "<group>"; };
 		D3CEAC6622CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FFSafeSwizzling.m"; sourceTree = "<group>"; };
 		D3CEAC6722CDE17E00E68FA8 /* NSArray+FFSafeKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FFSafeKit.m"; sourceTree = "<group>"; };
@@ -54,7 +51,6 @@
 		D3CEAC6A22CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+FFSafeKit.h"; sourceTree = "<group>"; };
 		D3CEAC6B22CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FFSafeSwizzling.h"; sourceTree = "<group>"; };
 		D3CEAC6C22CDE17E00E68FA8 /* NSDictionary+FFSafeKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FFSafeKit.m"; sourceTree = "<group>"; };
-		D3CEAC6D22CDE17E00E68FA8 /* NSObject+FFSafeImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FFSafeImp.m"; sourceTree = "<group>"; };
 		D3CEAC6E22CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FFSafeKit.m"; sourceTree = "<group>"; };
 		D3CEAC6F22CDE17E00E68FA8 /* NSArray+FFSafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FFSafeKit.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,8 +114,6 @@
 		D3CEAC6122CDE17E00E68FA8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D3CEAC6422CDE17E00E68FA8 /* NSObject+FFSafeImp.h */,
-				D3CEAC6D22CDE17E00E68FA8 /* NSObject+FFSafeImp.m */,
 				D3CEAC6B22CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h */,
 				D3CEAC6622CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m */,
 				D3CEAC6F22CDE17E00E68FA8 /* NSArray+FFSafeKit.h */,
@@ -144,7 +138,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3CEAC7822CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.h in Headers */,
-				D3CEAC7222CDE17E00E68FA8 /* NSObject+FFSafeImp.h in Headers */,
 				D3CEAC7622CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.h in Headers */,
 				D3CEAC7022CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h in Headers */,
 				D3633EF122CEF211008F8F26 /* FFSafeKit.h in Headers */,
@@ -252,7 +245,6 @@
 			files = (
 				D3CEAC7422CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m in Sources */,
 				D3CEAC7C22CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.m in Sources */,
-				D3CEAC7B22CDE17E00E68FA8 /* NSObject+FFSafeImp.m in Sources */,
 				D3CEAC7122CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m in Sources */,
 				D3CEAC7722CDE17E00E68FA8 /* NSMutableString+FFSafeKit.m in Sources */,
 				D3CEAC7A22CDE17E00E68FA8 /* NSDictionary+FFSafeKit.m in Sources */,
