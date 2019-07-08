@@ -16,52 +16,86 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        //Exchange `removeObjectForKey:`
-        NSString *removeObjectForKeyStr = @"removeObjectForKey:";
-        NSString *safeRemoveObjectForKeyStr = @"safeMutable_removeObjectForKey:";
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSDictionaryM")
-                                  originalSelector:NSSelectorFromString(removeObjectForKeyStr)
-                                       newSelector:NSSelectorFromString(safeRemoveObjectForKeyStr)];
+        Class cls = NSClassFromString(@"__NSDictionaryM");
+        [NSObject ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(setObject:forKey:) newSelector:@selector(ff_setObject:forKey:)];
+        [NSObject ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(setObject:forKeyedSubscript:) newSelector:@selector(ff_setObject:forKeyedSubscript:)];
+        [NSObject ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(removeObjectForKey:) newSelector:@selector(ff_removeObjectForKey:)];
         
-        //Exchange `setObject:forKey:`
-        NSString *setObjectForKeyStr = @"setObject:forKey:";
-        NSString *safeSetObjectForKeyStr = @"safeMutable_setObject:forKey:";
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSDictionaryM")
-                                  originalSelector:NSSelectorFromString(setObjectForKeyStr)
-                                       newSelector:NSSelectorFromString(safeSetObjectForKeyStr)];
+        Class cfCls = NSClassFromString(@"__NSCFDictionary");
+        [self ff_exchangeInstanceMethodOfClass:cfCls originalSelector:@selector(setObject:forKey:) newSelector:@selector(ff_setCFDictionary:forKey:)];
+        [self ff_exchangeInstanceMethodOfClass:cfCls originalSelector:@selector(removeObjectForKey:) newSelector:@selector(ff_removeCFDictionaryForKey:)];
     });
     
 }
 
 #pragma mark - Implement Methods
 /**
+ Adds a given key-value pair to the dictionary.
+ It's similar to `setObject:forKey:`, but it never throw exception.
+ 
+ @param object The value for aKey.
+ @param key The key for value.
+ */
+- (void)ff_setObject:(id)object forKey:(id<NSCopying>)key {
+    if (!object || !key) {
+        return;
+    }
+    return [self ff_setObject:object forKey:key];
+}
+
+/**
+ Adds a given key-value pair to the dictionary.
+ It's similar to `setObject:forKeyedSubscript:`, but it never throw exception.
+ 
+ @param object The value for key.
+ @param key The key for value.
+ */
+- (void)ff_setObject:(id)object forKeyedSubscript:(id<NSCopying>)key {
+    if (!object || !key) {
+        return;
+    }
+    return [self ff_setObject:object forKeyedSubscript:key];
+}
+
+/**
  Removes a given key and its associated value from the dictionary.
  It's similar to `removeObjectForKey:`, but it never throw exception.
  
  @param key The key to remove.
  */
-- (void)safeMutable_removeObjectForKey:(id<NSCopying>)key {
+- (void)ff_removeObjectForKey:(id)key {
     if (!key) {
         return;
     }
-    [self safeMutable_removeObjectForKey:key];
+    [self ff_removeObjectForKey:key];
 }
 
 /**
  Adds a given key-value pair to the dictionary.
- It's similar to `removeObjectForKey:`, but it never throw exception.
+ It's similar to `setObject:forKey:`, but it never throw exception.
  
- @param object The value for aKey. A strong reference to the object is maintained by the dictionary.
- @param key The key for value. The key is copied (using `copyWithZone:`; keys must conform to the NSCopying protocol). If aKey already exists in the dictionary, anObject takes its place.
+ @param dict The value for key.
+ @param key The key for value.
  */
-- (void)safeMutable_setObject:(id)object forKey:(id<NSCopying>)key {
-    if (!object) {
+- (void)ff_setCFDictionary:(id)dict forKey:(id<NSCopying>)key {
+    if (!dict || !key) {
         return;
     }
+    return [self ff_setCFDictionary:dict forKey:key];
+}
+
+/**
+ Removes a given key and its associated value from the dictionary.
+ It's similar to `removeObjectForKey:`, but it never throw exception.
+ 
+ @param key The key to remove.
+ */
+- (void)ff_removeCFDictionaryForKey:(id)key {
     if (!key) {
         return;
     }
-    return [self safeMutable_setObject:object forKey:key];
+    [self ff_removeCFDictionaryForKey:key];
 }
+
 
 @end
