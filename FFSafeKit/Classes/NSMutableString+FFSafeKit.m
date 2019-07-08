@@ -15,55 +15,129 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+        Class pCls = NSClassFromString(@"NSPlaceholderMutableString");
+        
+        //Exchange `[NSPlaceholderMutableString initWithString:]`
+        [self ff_exchangeInstanceMethodOfClass:pCls originalSelector:@selector(initWithString:) newSelector:@selector(ff_initWithString:)];
+        
+        Class cls = NSClassFromString(@"__NSCFString");
+        
+        //Exchange `hasPrefix:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(hasPrefix:) newSelector:@selector(ff_hasPrefix:)];
+        
+        //Exchange `hasSuffix:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(hasSuffix:) newSelector:@selector(ff_hasSuffix:)];
+        
         //Exchange `substringFromIndex:`
-        NSString *tmpSubFromStr = @"substringFromIndex:";
-        NSString *tmpSafeSubFromStr = @"safeMutable_substringFromIndex:";
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
-                                  originalSelector:NSSelectorFromString(tmpSubFromStr)
-                                       newSelector:NSSelectorFromString(tmpSafeSubFromStr)];
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(substringFromIndex:) newSelector:@selector(ff_substringFromIndex:)];
         
         //Exchange `substringToIndex:`
-        NSString *tmpSubToStr = @"substringToIndex:";
-        NSString *tmpSafeSubToStr = @"safeMutable_substringToIndex:";
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
-                                  originalSelector:NSSelectorFromString(tmpSubToStr)
-                                       newSelector:NSSelectorFromString(tmpSafeSubToStr)];
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(substringToIndex:) newSelector:@selector(ff_substringToIndex:)];
         
         //Exchange `substringWithRange:`
-        NSString *tmpSubRangeStr = @"substringWithRange:";
-        NSString *tmpSafeSubRangeStr = @"safeMutable_substringWithRange:";
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
-                                  originalSelector:NSSelectorFromString(tmpSubRangeStr)
-                                       newSelector:NSSelectorFromString(tmpSafeSubRangeStr)];
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(substringWithRange:) newSelector:@selector(ff_substringWithRange:)];
         
-        //Exchange `rangeOfString:options:range:locale:`
-        NSString *tmpRangeOfStr = @"rangeOfString:options:range:locale:";
-        NSString *tmpSafeRangeOfStr = @"safeMutable_rangeOfString:options:range:locale:";
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
-                                  originalSelector:NSSelectorFromString(tmpRangeOfStr)
-                                       newSelector:NSSelectorFromString(tmpSafeRangeOfStr)];
+        //Exchange `characterAtIndex:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(characterAtIndex:) newSelector:@selector(ff_characterAtIndex:)];
+        
+        //Exchange `stringByReplacingOccurrencesOfString:withString:options:range:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(stringByReplacingOccurrencesOfString:withString:options:range:) newSelector:@selector(ff_stringByReplacingOccurrencesOfString:withString:options:range:)];
+        
+        //Exchange `stringByReplacingOccurrencesOfString:withString:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(stringByReplacingOccurrencesOfString:withString:) newSelector:@selector(ff_stringByReplacingCharactersInRange:withString:)];
+        
+        //Exchange `stringByReplacingCharactersInRange:withString:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(stringByReplacingCharactersInRange:withString:) newSelector:@selector(ff_stringByReplacingCharactersInRange:withString:)];
+        
+        //Exchange `replaceCharactersInRange:withString:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(replaceCharactersInRange:withString:) newSelector:@selector(ff_replaceCharactersInRange:withString:)];
+        
+        //Exchange `replaceOccurrencesOfString:withString:options:range:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(replaceOccurrencesOfString:withString:options:range:) newSelector:@selector(ff_replaceOccurrencesOfString:withString:options:range:)];
+        
+        //Exchange `insertString:atIndex:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(insertString:atIndex:) newSelector:@selector(ff_insertString:atIndex:)];
+        
+        //Exchange `deleteCharactersInRange:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(deleteCharactersInRange:) newSelector:@selector(ff_deleteCharactersInRange:)];
         
         //Exchange `appendString:`
-        NSString *tmpAppendStr = @"appendString:";
-        NSString *tmpSafeAppendStr = @"safeMutable_appendString:";
-        [NSObject ff_exchangeInstanceMethodOfClass:NSClassFromString(@"__NSCFString")
-                                  originalSelector:NSSelectorFromString(tmpAppendStr)
-                                       newSelector:NSSelectorFromString(tmpSafeAppendStr)];
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(appendString:) newSelector:@selector(ff_appendString:)];
+        
+        //Exchange `setString:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(setString:) newSelector:@selector(ff_setString:)];
     });
 }
 
 #pragma mark - Implement Methods
+
+/**
+ Returns an NSMutableString object initialized by copying the characters from another given string.
+ It's similar to `initWithString:`, but it never throw exception.
+ 
+ @param string The string from which to copy characters.
+ */
+- (instancetype)ff_initWithString:(NSString *)string {
+    id safeStr = nil;
+    @try {
+        safeStr = [self ff_initWithString:string];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return safeStr;
+    }
+}
+
+/**
+ Returns a Boolean value that indicates whether a given string matches the beginning characters of the receiver.
+ It's similar to `hasPrefix:`, but it never throw exception.
+ 
+ @param string A string.
+ */
+- (BOOL)ff_hasPrefix:(NSString *)string {
+    BOOL hasPerfix = NO;
+    @try {
+        hasPerfix = [self ff_hasPrefix:string];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return hasPerfix;
+    }
+}
+
+/**
+ Returns a Boolean value that indicates whether a given string matches the ending characters of the receiver.
+ It's similar to `hasSuffix:`, but it never throw exception.
+ 
+ @param string A string.
+ */
+- (BOOL)ff_hasSuffix:(NSString *)string {
+    BOOL hasSuffix = NO;
+    @try {
+        hasSuffix = [self ff_hasSuffix:string];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return hasSuffix;
+    }
+}
+
 /**
  Returns a new string containing the characters of the receiver from the one at a given index to the end.
  It's similar to `substringFromIndex:`, but it never throw exception.
  
  @param from An index.
  */
-- (NSString *)safeMutable_substringFromIndex:(NSUInteger)from {
-    if (from > self.length) {
-        return nil;
+- (NSString *)ff_substringFromIndex:(NSUInteger)from {
+    NSString *subStr = nil;
+    @try {
+        subStr = [self ff_substringFromIndex:from];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return subStr;
     }
-    return [self safeMutable_substringFromIndex:from];
 }
 
 /**
@@ -72,38 +146,15 @@
  
  @param to An index.
  */
-- (NSString *)safeMutable_substringToIndex:(NSUInteger)to {
-    if (to > self.length ) {
-        return nil;
+- (NSString *)ff_substringToIndex:(NSUInteger)to {
+    NSString *subStr = nil;
+    @try {
+        subStr = [self ff_substringToIndex:to];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return subStr;
     }
-    return [self safeMutable_substringToIndex:to];
-}
-
-/**
- Finds and returns the range of the first occurrence of a given string within a given range of the string, subject to given options, using the specified locale, if any.
- It's similar to `rangeOfString:options:range:locale:`, but it never throw exception.
- 
- @param searchString The string for which to search.
- @param mask A mask specifying search options. The following options may be specified by combining them with the C bitwise OR operator: NSCaseInsensitiveSearch, NSLiteralSearch, NSBackwardsSearch, and NSAnchoredSearch. See String Programming Guide for details on these options.
- @param rangeOfReceiverToSearch The range within the receiver for which to search for aString.
- @param locale The locale to use when comparing the receiver with aString. To use the current locale, pass `[NSLocale currentLocale]`. To use the system locale, pass nil.
- @return An NSRange structure giving the location and length in the receiver of aString within aRange in the receiver, modulo the options in mask. The range returned is relative to the start of the string, not to the passed-in range. Returns `{NSNotFound, 0}` if aString is not found or is empty ("").
- */
-- (NSRange)safeMutable_rangeOfString:(NSString *)searchString options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToSearch locale:(nullable NSLocale *)locale {
-    if (!searchString) {
-        searchString = self;
-    }
-    if (rangeOfReceiverToSearch.location > self.length) {
-        rangeOfReceiverToSearch = NSMakeRange(0, self.length);
-    }
-    if (rangeOfReceiverToSearch.length > self.length) {
-        rangeOfReceiverToSearch = NSMakeRange(0, self.length);
-    }
-    if ((rangeOfReceiverToSearch.location + rangeOfReceiverToSearch.length) > self.length) {
-        rangeOfReceiverToSearch = NSMakeRange(0, self.length);
-    }
-    
-    return [self safeMutable_rangeOfString:searchString options:mask range:rangeOfReceiverToSearch locale:locale];
 }
 
 /**
@@ -112,18 +163,173 @@
  
  @param range A range.
  */
-- (NSString *)safeMutable_substringWithRange:(NSRange)range {
-    if (range.location > self.length) {
-        return nil;
+- (NSString *)ff_substringWithRange:(NSRange)range {
+    NSString *subStr = nil;
+    @try {
+        subStr = [self ff_substringWithRange:range];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return subStr;
     }
-    if (range.length > self.length) {
-        return nil;
+}
+
+/**
+ Returns the character at a given UTF-16 code unit index.
+ It's similar to `characterAtIndex:`, but it never throw exception.
+ 
+ @param index The index of the character to retrieve.
+ */
+- (unichar)ff_characterAtIndex:(NSUInteger)index {
+    unichar character;
+    @try {
+        character = [self ff_characterAtIndex:index];
     }
-    if ((range.location + range.length) > self.length) {
-        return nil;
+    @catch (NSException *exception) {
+        //
     }
-    
-    return [self safeMutable_substringWithRange:range];
+    @finally {
+        return character;
+    }
+}
+
+/**
+ Returns a new string in which all occurrences of a target string in a specified range of the receiver are replaced by another given string.
+ It's similar to `stringByReplacingOccurrencesOfString:withString:options:range:`, but it never throw exception.
+ 
+ @param target The string to replace.
+ @param replacement The string with which to replace target.
+ @param options A mask of options to use when comparing target with the receiver. Pass 0 to specify no options.
+ @param searchRange The range in the receiver in which to search for target.
+ 
+ @return A new string in which all occurrences of target, matched using options, in searchRange of the receiver are replaced by replacement.
+ */
+- (NSString *)ff_stringByReplacingOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange {
+    NSString *safeStr = nil;
+    @try {
+        safeStr = [self ff_stringByReplacingOccurrencesOfString:target withString:replacement options:options range:searchRange];
+    }
+    @catch (NSException *exception) {
+        //
+    }
+    @finally {
+        return safeStr;
+    }
+}
+
+/**
+ Returns a new string in which all occurrences of a target string in the receiver are replaced by another given string.
+ It's similar to `stringByReplacingOccurrencesOfString:withString:`, but it never throw exception.
+ 
+ @param target The string to replace.
+ @param replacement The string with which to replace target.
+ 
+ @return A new string in which all occurrences of target in the receiver are replaced by replacement.
+ */
+- (NSString *)ff_stringByReplacingOccurrencesOfString:(NSString *)target withString:(NSString *)replacement {
+    NSString *safeStr = nil;
+    @try {
+        safeStr = [self ff_stringByReplacingOccurrencesOfString:target withString:replacement];
+    }
+    @catch (NSException *exception) {
+        //
+    }
+    @finally {
+        return safeStr;
+    }
+}
+
+/**
+ Returns a new string in which the characters in a specified range of the receiver are replaced by a given string.
+ It's similar to `stringByReplacingCharactersInRange:withString:`, but it never throw exception.
+ 
+ @param range A range of characters in the receiver.
+ @param replacement The string with which to replace the characters in range.
+ 
+ @return A new string in which the characters in range of the receiver are replaced by replacement.
+ */
+- (NSString *)ff_stringByReplacingCharactersInRange:(NSRange)range withString:(NSString *)replacement {
+    NSString *safeStr = nil;
+    @try {
+        safeStr = [self ff_stringByReplacingCharactersInRange:range withString:replacement];
+    }
+    @catch (NSException *exception) {
+        //
+    }
+    @finally {
+        return safeStr;
+    }
+}
+
+/**
+ Replaces the characters in the given range with the characters of the given string.
+ It's similar to `replaceCharactersInRange:withString:`, but it never throw exception.
+ 
+ @param range A range specifying the characters to replace.
+ @param string A string specifying the characters to replace those in aRange.
+ */
+- (void)ff_replaceCharactersInRange:(NSRange)range withString:(NSString *)string {
+    @try {
+        [self ff_replaceCharactersInRange:range withString:string];
+    }
+    @catch (NSException *exception) {
+        //
+    }
+    @finally {
+    }
+}
+
+/**
+ Replaces all occurrences of a given string in a given range with another given string, returning the number of replacements.
+ It's similar to `replaceOccurrencesOfString:withString:options:range:`, but it never throw exception.
+ 
+ @param target The string to replace.
+ @param replacement The string with which to replace target.
+ @param options A mask specifying search options.
+ @param searchRange The range of characters to replace.
+ 
+ @return The number of replacements made.
+ */
+- (NSUInteger)ff_replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange {
+    NSUInteger index = 0;
+    @try {
+        index = [self ff_replaceOccurrencesOfString:target withString:replacement options:options range:searchRange];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+        return index;
+    }
+}
+
+/**
+ Inserts into the receiver the characters of a given string at a given location.
+ It's similar to `insertString:atIndex:`, but it never throw exception.
+ 
+ @param string The string to insert into the receiver.
+ @param index The location at which aString is inserted.
+ */
+- (void)ff_insertString:(NSString *)string atIndex:(NSUInteger)index {
+    @try {
+        [self ff_insertString:string atIndex:index];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+    }
+}
+
+/**
+ Removes from the receiver the characters in a given range.
+ It's similar to `insertString:atIndex:`, but it never throw exception.
+ 
+ @param range The range of characters to delete.
+ */
+- (void)ff_deleteCharactersInRange:(NSRange)range {
+    @try {
+        [self ff_deleteCharactersInRange:range];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+    }
 }
 
 /**
@@ -132,11 +338,28 @@
  
  @param string The string to append to the receiver.
  */
-- (void)safeMutable_appendString:(NSString *)string {
-    if (!string) {
-        return;
+- (void)ff_appendString:(NSString *)string {
+    @try {
+        [self ff_appendString:string];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
     }
-    return [self safeMutable_appendString:string];
+}
+
+/**
+ Replaces the characters of the receiver with those in a given string.
+ It's similar to `setString:`, but it never throw exception.
+ 
+ @param string The string with which to replace the receiver's content.
+ */
+- (void)ff_setString:(NSString *)string {
+    @try {
+        [self ff_setString:string];
+    } @catch (NSException *exception) {
+        //
+    } @finally {
+    }
 }
 
 @end
