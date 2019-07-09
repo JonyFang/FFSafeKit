@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3445A7722D46745001FDCA7 /* FFSafeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = D3445A7522D46745001FDCA7 /* FFSafeHelper.h */; };
+		D3445A7822D46745001FDCA7 /* FFSafeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D3445A7622D46745001FDCA7 /* FFSafeHelper.m */; };
 		D3633EF122CEF211008F8F26 /* FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC4A22CDE00600E68FA8 /* FFSafeKit.h */; };
 		D3CEAC5122CDE00600E68FA8 /* FFSafeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CEAC4722CDE00600E68FA8 /* FFSafeKit.framework */; };
 		D3CEAC5622CDE00600E68FA8 /* FFSafeKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC5522CDE00600E68FA8 /* FFSafeKitTests.m */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D3445A7522D46745001FDCA7 /* FFSafeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFSafeHelper.h; sourceTree = "<group>"; };
+		D3445A7622D46745001FDCA7 /* FFSafeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFSafeHelper.m; sourceTree = "<group>"; };
 		D3CEAC4722CDE00600E68FA8 /* FFSafeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FFSafeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CEAC4A22CDE00600E68FA8 /* FFSafeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFSafeKit.h; sourceTree = "<group>"; };
 		D3CEAC4B22CDE00600E68FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 		D3CEAC6122CDE17E00E68FA8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D3445A7522D46745001FDCA7 /* FFSafeHelper.h */,
+				D3445A7622D46745001FDCA7 /* FFSafeHelper.m */,
 				D3CEAC6B22CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h */,
 				D3CEAC6622CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m */,
 				D3CEAC6F22CDE17E00E68FA8 /* NSArray+FFSafeKit.h */,
@@ -144,6 +150,7 @@
 				D3CEAC7322CDE17E00E68FA8 /* NSDictionary+FFSafeKit.h in Headers */,
 				D3CEAC7922CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h in Headers */,
 				D3CEAC7D22CDE17E00E68FA8 /* NSArray+FFSafeKit.h in Headers */,
+				D3445A7722D46745001FDCA7 /* FFSafeHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +252,7 @@
 			files = (
 				D3CEAC7422CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m in Sources */,
 				D3CEAC7C22CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.m in Sources */,
+				D3445A7822D46745001FDCA7 /* FFSafeHelper.m in Sources */,
 				D3CEAC7122CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m in Sources */,
 				D3CEAC7722CDE17E00E68FA8 /* NSMutableString+FFSafeKit.m in Sources */,
 				D3CEAC7A22CDE17E00E68FA8 /* NSDictionary+FFSafeKit.m in Sources */,
