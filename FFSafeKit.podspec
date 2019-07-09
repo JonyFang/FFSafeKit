@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
 
   s.source_files        = "FFSafeKit/Classes/*.{h,m}"
-  s.public_header_files = 'FFSafeKit/**/*.{h}'
+  s.public_header_files = 'FFSafeKit/*.{h}'
   s.source              = { :git => "https://github.com/JonyFang/FFSafeKit.git", :tag => s.version.to_s }
 
 end

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Demo/FFSafeKit_Demo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FFSafeKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Demo/Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

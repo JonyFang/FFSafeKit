@@ -1,0 +1,15 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+inhibit_all_warnings!
+use_frameworks!
+
+project 'FFSafeKit_Demo'
+workspace '../FFSafeKit'
+
+def local_pods
+  pod 'FFSafeKit', :path => '../'
+end
+
+target 'FFSafeKit_Demo' do
+  local_pods
+end
