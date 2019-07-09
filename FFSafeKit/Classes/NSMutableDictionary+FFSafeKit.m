@@ -8,6 +8,7 @@
 
 #import "NSMutableDictionary+FFSafeKit.h"
 #import "NSObject+FFSafeSwizzling.h"
+#import "FFSafeHelper.h"
 #import <objc/runtime.h>
 
 @implementation NSMutableDictionary (FFSafeKit)
@@ -50,7 +51,8 @@
     @try {
         [self ff_setObject:object forKey:key];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -66,7 +68,8 @@
     @try {
         [self ff_setObject:object forKeyedSubscript:key];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -81,7 +84,8 @@
     @try {
         [self ff_removeObjectForKey:key];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -97,7 +101,8 @@
     @try {
         [self ff_setCFDictionary:dict forKey:key];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -112,7 +117,8 @@
     @try {
         [self ff_removeCFDictionaryForKey:key];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }

@@ -8,6 +8,7 @@
 
 #import "NSArray+FFSafeKit.h"
 #import "NSObject+FFSafeSwizzling.h"
+#import "FFSafeHelper.h"
 #import <objc/runtime.h>
 
 @implementation NSArray (FFSafeKit)
@@ -47,6 +48,9 @@
     @try {
         arr = [self ff_initWithObjects:objects count:cnt];
     } @catch (NSException *exception) {
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
+        //Crash handling
         NSUInteger index = 0;
         id newArr[cnt];
         for (int i = 0; i < cnt; i++) {
@@ -72,7 +76,8 @@
     @try {
         object = [self ff_IObjectAtIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return object;
     }
@@ -89,7 +94,8 @@
     @try {
         object = [self ff_0ObjectAtIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return object;
     }
@@ -106,7 +112,8 @@
     @try {
         object = [self ff_sObjectAtIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return object;
     }
@@ -123,7 +130,8 @@
     @try {
         object = [self ff_IObjectAtIndexedSubscript:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return object;
     }

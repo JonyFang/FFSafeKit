@@ -8,6 +8,7 @@
 
 #import "NSMutableString+FFSafeKit.h"
 #import "NSObject+FFSafeSwizzling.h"
+#import "FFSafeHelper.h"
 #import <objc/runtime.h>
 
 @implementation NSMutableString (FFSafeKit)
@@ -83,7 +84,8 @@
     @try {
         safeStr = [self ff_initWithString:string];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return safeStr;
     }
@@ -100,7 +102,8 @@
     @try {
         hasPerfix = [self ff_hasPrefix:string];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return hasPerfix;
     }
@@ -117,7 +120,8 @@
     @try {
         hasSuffix = [self ff_hasSuffix:string];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return hasSuffix;
     }
@@ -134,7 +138,8 @@
     @try {
         subStr = [self ff_substringFromIndex:from];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return subStr;
     }
@@ -151,7 +156,8 @@
     @try {
         subStr = [self ff_substringToIndex:to];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return subStr;
     }
@@ -168,7 +174,8 @@
     @try {
         subStr = [self ff_substringWithRange:range];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return subStr;
     }
@@ -185,7 +192,8 @@
     @try {
         character = [self ff_characterAtIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return character;
     }
@@ -207,7 +215,8 @@
     @try {
         safeStr = [self ff_stringByReplacingOccurrencesOfString:target withString:replacement options:options range:searchRange];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return safeStr;
     }
@@ -227,7 +236,8 @@
     @try {
         safeStr = [self ff_stringByReplacingOccurrencesOfString:target withString:replacement];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return safeStr;
     }
@@ -247,7 +257,8 @@
     @try {
         safeStr = [self ff_stringByReplacingCharactersInRange:range withString:replacement];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return safeStr;
     }
@@ -264,7 +275,8 @@
     @try {
         [self ff_replaceCharactersInRange:range withString:string];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -285,7 +297,8 @@
     @try {
         index = [self ff_replaceOccurrencesOfString:target withString:replacement options:options range:searchRange];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return index;
     }
@@ -302,7 +315,8 @@
     @try {
         [self ff_insertString:string atIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -317,7 +331,8 @@
     @try {
         [self ff_deleteCharactersInRange:range];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -332,7 +347,8 @@
     @try {
         [self ff_appendString:string];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -347,7 +363,8 @@
     @try {
         [self ff_setString:string];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }

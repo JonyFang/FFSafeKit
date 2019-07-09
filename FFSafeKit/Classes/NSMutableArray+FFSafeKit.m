@@ -8,6 +8,7 @@
 
 #import "NSMutableArray+FFSafeKit.h"
 #import "NSObject+FFSafeSwizzling.h"
+#import "FFSafeHelper.h"
 #import <objc/runtime.h>
 
 @implementation NSMutableArray (FFSafeKit)
@@ -73,7 +74,8 @@
     @try {
         arr = [self ff_mObjectAtIndexedSubscript:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return arr;
     }
@@ -90,7 +92,8 @@
     @try {
         [self ff_insertMObject:object atIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -105,7 +108,8 @@
     @try {
         [self ff_removeMObjectAtIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -120,7 +124,8 @@
     @try {
         [self ff_removeMObjectsInRange:range];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -135,7 +140,8 @@
     @try {
         [self ff_replaceMObjectAtIndex:index withObject:object];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -151,7 +157,8 @@
     @try {
         [self ff_replaceMObjectsInRange:range withObjectsFromArray:otherArray];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -169,7 +176,8 @@
     @try {
         arr = [self ff_cfmObjectAtIndexedSubscript:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
         return arr;
     }
@@ -186,7 +194,8 @@
     @try {
         [self ff_insertCFMObject:object atIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -201,7 +210,8 @@
     @try {
         [self ff_removeCFMObjectAtIndex:index];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -216,7 +226,8 @@
     @try {
         [self ff_removeCFMObjectsInRange:range];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -231,7 +242,8 @@
     @try {
         [self ff_replaceCFMObjectAtIndex:index withObject:object];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }
@@ -247,7 +259,8 @@
     @try {
         [self ff_replaceCFMObjectsInRange:range withObjectsFromArray:otherArray];
     } @catch (NSException *exception) {
-        //
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
     }
 }

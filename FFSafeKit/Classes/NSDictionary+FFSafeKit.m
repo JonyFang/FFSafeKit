@@ -8,6 +8,7 @@
 
 #import "NSDictionary+FFSafeKit.h"
 #import "NSObject+FFSafeSwizzling.h"
+#import "FFSafeHelper.h"
 #import <objc/runtime.h>
 
 @implementation NSDictionary (FFSafeKit)
@@ -39,6 +40,9 @@
     @try {
         dict = [self ff_initWithObjects:objects forKeys:keys];
     } @catch (NSException *exception) {
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
+        //Crash handling
         NSUInteger count = MIN(objects.count, keys.count);
         NSMutableArray *newKeys = [NSMutableArray array];
         NSMutableArray *newObjects = [NSMutableArray array];
@@ -74,6 +78,9 @@
     @try {
         dict = [self ff_initWithObjects:objects forKeys:keys count:cnt];
     } @catch (NSException *exception) {
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
+        //Crash handling
         id newKeys[cnt];
         id newObjects[cnt];
         NSUInteger index = 0;
