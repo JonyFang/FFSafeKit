@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <FFSafeKit.h>
+#import <FFSafeHelper.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [FFSafeHelper ff_setupStatusToDebug:YES exceptionBlock:^(NSException * _Nonnull exception) {
+        NSLog(@"== exception ==\n%@", exception);
+    }];
     return YES;
 }
 

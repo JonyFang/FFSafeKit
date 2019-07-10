@@ -40,10 +40,10 @@ static dispatch_once_t onceToken;
 }
 
 + (void)ff_crashInfoOfException:(NSException *)exception {
-    NSString *name = [NSString stringWithFormat:@"\t >>> Name: %@", exception.name];
-    NSString *reason = [NSString stringWithFormat:@"\t >>> Reason: %@", exception.reason];
-    NSString *callStackSymbols = [NSString stringWithFormat:@"\t >>> Call Stack Symbols: \n%@", [NSThread callStackSymbols]];
-    NSString *crashInfo = [NSString stringWithFormat:@"\n>>>>>>>>>> Crash Info >>>>>>>>>>\n%@\n%@\n%@\n<<<<<<<<<< Crash Info <<<<<<<<<<", name, reason, callStackSymbols];
+    NSString *name = [NSString stringWithFormat:@">>> Name: %@", exception.name];
+    NSString *reason = [NSString stringWithFormat:@">>> Reason: %@", exception.reason];
+    NSString *callStackSymbols = [NSString stringWithFormat:@">>> Call Stack Symbols: \n%@", [NSThread callStackSymbols]];
+    NSString *crashInfo = [NSString stringWithFormat:@"\n\n>>>>>>>>>>>>>>>>>>>> Crash Info >>>>>>>>>>>>>>>>>>>>\n%@\n%@\n%@\n<<<<<<<<<<<<<<<<<<<< Crash Info <<<<<<<<<<<<<<<<<<<<", name, reason, callStackSymbols];
     
     //Safe exception block
     NSDictionary *userInfo = @{@"callStackSymbols": [NSString stringWithFormat:@"%@", [NSThread callStackSymbols]]};
@@ -54,7 +54,8 @@ static dispatch_once_t onceToken;
     
     //Log crash info
     if ([FFSafeHelper shareInstance].enableSafeKitDebug) {
-        NSAssert(NO, crashInfo);
+        NSLog(@"%@", crashInfo);
+        assert(NO);
     } else {
         //
     }

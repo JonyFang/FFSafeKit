@@ -16,7 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self testArray];
+}
+
+- (void)testArray {
+    NSArray *array = @[@"0", @"1", @"2", @"3"];
+    
+    //Index is equal to `array.count`
+    NSString *equalIndex = array[4];
+    NSLog(@"equal index item = %@", equalIndex);
+    
+    //Index is greater than `array.count`
+    NSString *greaterIndex = array[5];
+    NSLog(@"greater index item = %@", greaterIndex);
 }
 
 
