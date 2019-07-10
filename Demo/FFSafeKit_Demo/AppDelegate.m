@@ -18,7 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [FFSafeHelper ff_setupStatusToDebug:YES exceptionBlock:^(NSException * _Nonnull exception) {
+    //Set `YES` to enable error logs for debug.
+    [FFSafeHelper ff_setupStatusToDebug:NO exceptionBlock:^(NSException * _Nonnull exception) {
         NSLog(@"== exception ==\n%@", exception);
     }];
     return YES;
