@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <FFSafeKit.h>
-#import <FFSafeHelper.h>
 
 @interface AppDelegate ()
 
