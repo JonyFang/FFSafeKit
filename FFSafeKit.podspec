@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name                = "FFSafeKit"
-  s.version             = "0.2.0"
+  s.version             = "0.3.0"
   s.summary             = "Using NSArray, NSMutableArray, NSDictionary, NSMutableDictionary, NSMutableString safely."
 
   s.description         = <<-DESC
