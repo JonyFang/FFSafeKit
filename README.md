@@ -47,7 +47,8 @@ To run the `FFSafeKit` project, clone the Repo, and start `FFSafeKit` in Xcode.
 ```bash
 $ git clone https://github.com/JonyFang/FFSafeKit.git
 $ cd FFSafeKit
-$ open FFSafeKit.xcodeproj
+$ cd Shell && sh install-bundle.sh && sh install-pods.sh && cd ..
+$ open FFSafeKit.xcworkspace
 ```
 
 ## Installation
@@ -133,6 +134,11 @@ Import the library where you want to use it.
 
 ```objc
 #import <FFSafeKit.h>
+
+//Set `YES` to enable error logs for debug.
+[FFSafeHelper ff_setupStatusToDebug:NO exceptionBlock:^(NSException * _Nonnull exception) {
+    NSLog(@"== exception ==\n%@", exception);
+}];
 ```
 
 
