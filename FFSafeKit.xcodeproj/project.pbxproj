@@ -9,6 +9,21 @@
 /* Begin PBXBuildFile section */
 		D3445A7722D46745001FDCA7 /* FFSafeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = D3445A7522D46745001FDCA7 /* FFSafeHelper.h */; };
 		D3445A7822D46745001FDCA7 /* FFSafeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D3445A7622D46745001FDCA7 /* FFSafeHelper.m */; };
+		D348955F22D58C3B00E54DA6 /* FFSafeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = D3445A7522D46745001FDCA7 /* FFSafeHelper.h */; };
+		D348956022D58C3B00E54DA6 /* FFSafeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D3445A7622D46745001FDCA7 /* FFSafeHelper.m */; };
+		D348956122D58C3B00E54DA6 /* NSObject+FFSafeSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6B22CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.h */; };
+		D348956222D58C3B00E54DA6 /* NSObject+FFSafeSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6622CDE17E00E68FA8 /* NSObject+FFSafeSwizzling.m */; };
+		D348956322D58C3B00E54DA6 /* NSArray+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6F22CDE17E00E68FA8 /* NSArray+FFSafeKit.h */; };
+		D348956422D58C3B00E54DA6 /* NSArray+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6722CDE17E00E68FA8 /* NSArray+FFSafeKit.m */; };
+		D348956522D58C3B00E54DA6 /* NSMutableArray+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6822CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.h */; };
+		D348956622D58C3B00E54DA6 /* NSMutableArray+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6E22CDE17E00E68FA8 /* NSMutableArray+FFSafeKit.m */; };
+		D348956722D58C3B00E54DA6 /* NSDictionary+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6522CDE17E00E68FA8 /* NSDictionary+FFSafeKit.h */; };
+		D348956822D58C3B00E54DA6 /* NSDictionary+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6C22CDE17E00E68FA8 /* NSDictionary+FFSafeKit.m */; };
+		D348956922D58C3B00E54DA6 /* NSMutableDictionary+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6A22CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.h */; };
+		D348956A22D58C3B00E54DA6 /* NSMutableDictionary+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6322CDE17E00E68FA8 /* NSMutableDictionary+FFSafeKit.m */; };
+		D348956B22D58C3B00E54DA6 /* NSMutableString+FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC6222CDE17E00E68FA8 /* NSMutableString+FFSafeKit.h */; };
+		D348956C22D58C3B00E54DA6 /* NSMutableString+FFSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC6922CDE17E00E68FA8 /* NSMutableString+FFSafeKit.m */; };
+		D348956D22D58C3B00E54DA6 /* FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC4A22CDE00600E68FA8 /* FFSafeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3633EF122CEF211008F8F26 /* FFSafeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CEAC4A22CDE00600E68FA8 /* FFSafeKit.h */; };
 		D3CEAC5122CDE00600E68FA8 /* FFSafeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CEAC4722CDE00600E68FA8 /* FFSafeKit.framework */; };
 		D3CEAC5622CDE00600E68FA8 /* FFSafeKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CEAC5522CDE00600E68FA8 /* FFSafeKitTests.m */; };
@@ -39,6 +54,8 @@
 /* Begin PBXFileReference section */
 		D3445A7522D46745001FDCA7 /* FFSafeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFSafeHelper.h; sourceTree = "<group>"; };
 		D3445A7622D46745001FDCA7 /* FFSafeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFSafeHelper.m; sourceTree = "<group>"; };
+		D348955722D58BDA00E54DA6 /* FFSafeKit_Static.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FFSafeKit_Static.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D348955A22D58BDA00E54DA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3CEAC4722CDE00600E68FA8 /* FFSafeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FFSafeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CEAC4A22CDE00600E68FA8 /* FFSafeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFSafeKit.h; sourceTree = "<group>"; };
 		D3CEAC4B22CDE00600E68FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +77,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D348955422D58BDA00E54DA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3CEAC4422CDE00600E68FA8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,11 +102,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D348955822D58BDA00E54DA6 /* FFSafeKit_Static */ = {
+			isa = PBXGroup;
+			children = (
+				D348955A22D58BDA00E54DA6 /* Info.plist */,
+			);
+			path = FFSafeKit_Static;
+			sourceTree = "<group>";
+		};
 		D3CEAC3D22CDE00600E68FA8 = {
 			isa = PBXGroup;
 			children = (
 				D3CEAC4922CDE00600E68FA8 /* FFSafeKit */,
 				D3CEAC5422CDE00600E68FA8 /* FFSafeKitTests */,
+				D348955822D58BDA00E54DA6 /* FFSafeKit_Static */,
 				D3CEAC4822CDE00600E68FA8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +125,7 @@
 			children = (
 				D3CEAC4722CDE00600E68FA8 /* FFSafeKit.framework */,
 				D3CEAC5022CDE00600E68FA8 /* FFSafeKitTests.xctest */,
+				D348955722D58BDA00E54DA6 /* FFSafeKit_Static.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +173,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		D348955222D58BDA00E54DA6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D348956D22D58C3B00E54DA6 /* FFSafeKit.h in Headers */,
+				D348955F22D58C3B00E54DA6 /* FFSafeHelper.h in Headers */,
+				D348956322D58C3B00E54DA6 /* NSArray+FFSafeKit.h in Headers */,
+				D348956522D58C3B00E54DA6 /* NSMutableArray+FFSafeKit.h in Headers */,
+				D348956722D58C3B00E54DA6 /* NSDictionary+FFSafeKit.h in Headers */,
+				D348956922D58C3B00E54DA6 /* NSMutableDictionary+FFSafeKit.h in Headers */,
+				D348956B22D58C3B00E54DA6 /* NSMutableString+FFSafeKit.h in Headers */,
+				D348956122D58C3B00E54DA6 /* NSObject+FFSafeSwizzling.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3CEAC4222CDE00600E68FA8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,6 +206,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		D348955622D58BDA00E54DA6 /* FFSafeKit_Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D348955E22D58BDA00E54DA6 /* Build configuration list for PBXNativeTarget "FFSafeKit_Static" */;
+			buildPhases = (
+				D348955222D58BDA00E54DA6 /* Headers */,
+				D348955322D58BDA00E54DA6 /* Sources */,
+				D348955422D58BDA00E54DA6 /* Frameworks */,
+				D348955522D58BDA00E54DA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FFSafeKit_Static;
+			productName = FFSafeKit_Static;
+			productReference = D348955722D58BDA00E54DA6 /* FFSafeKit_Static.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D3CEAC4622CDE00600E68FA8 /* FFSafeKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3CEAC5B22CDE00600E68FA8 /* Build configuration list for PBXNativeTarget "FFSafeKit" */;
@@ -202,6 +269,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = JonyFang;
 				TargetAttributes = {
+					D348955622D58BDA00E54DA6 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					D3CEAC4622CDE00600E68FA8 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -223,12 +293,20 @@
 			projectRoot = "";
 			targets = (
 				D3CEAC4622CDE00600E68FA8 /* FFSafeKit */,
+				D348955622D58BDA00E54DA6 /* FFSafeKit_Static */,
 				D3CEAC4F22CDE00600E68FA8 /* FFSafeKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D348955522D58BDA00E54DA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3CEAC4522CDE00600E68FA8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +324,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D348955322D58BDA00E54DA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D348956222D58C3B00E54DA6 /* NSObject+FFSafeSwizzling.m in Sources */,
+				D348956622D58C3B00E54DA6 /* NSMutableArray+FFSafeKit.m in Sources */,
+				D348956022D58C3B00E54DA6 /* FFSafeHelper.m in Sources */,
+				D348956A22D58C3B00E54DA6 /* NSMutableDictionary+FFSafeKit.m in Sources */,
+				D348956C22D58C3B00E54DA6 /* NSMutableString+FFSafeKit.m in Sources */,
+				D348956822D58C3B00E54DA6 /* NSDictionary+FFSafeKit.m in Sources */,
+				D348956422D58C3B00E54DA6 /* NSArray+FFSafeKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3CEAC4322CDE00600E68FA8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +371,58 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		D348955C22D58BDA00E54DA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 26SQZQ89WS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FFSafeKit_Static/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonyfang.FFSafeKit-Static";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D348955D22D58BDA00E54DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 26SQZQ89WS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FFSafeKit_Static/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonyfang.FFSafeKit-Static";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D3CEAC5922CDE00600E68FA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -484,6 +628,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D348955E22D58BDA00E54DA6 /* Build configuration list for PBXNativeTarget "FFSafeKit_Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D348955C22D58BDA00E54DA6 /* Debug */,
+				D348955D22D58BDA00E54DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D3CEAC4122CDE00600E68FA8 /* Build configuration list for PBXProject "FFSafeKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
