@@ -13,6 +13,7 @@
 FOUNDATION_EXPORT double FFSafeKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char FFSafeKitVersionString[];
 
+#import <FFSafeKit/FFSafeHelper.h>
 #import <FFSafeKit/NSArray+FFSafeKit.h>
 #import <FFSafeKit/NSMutableArray+FFSafeKit.h>
 #import <FFSafeKit/NSDictionary+FFSafeKit.h>
@@ -21,6 +22,7 @@ FOUNDATION_EXPORT const unsigned char FFSafeKitVersionString[];
 
 #else
 
+#import "FFSafeHelper.h"
 #import "NSArray+FFSafeKit.h"
 #import "NSMutableArray+FFSafeKit.h"
 #import "NSDictionary+FFSafeKit.h"
