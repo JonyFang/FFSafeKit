@@ -1,16 +1,41 @@
 language: objective-c
 osx_image: xcode10.2
-xcode_project: FFSafeKit.xcodeproj
-xcode_scheme: FFSafeKit
+
+xcode_workspace: FFSafeKit.xcworkspace
+podfile: Demo/Podfile
 
 before_install:
   - env
+  - locale
+  - bundle install
+  - gem install cocoapods --no-document --quiet
+  - gem install xcpretty --no-document --quiet
+  - bundler exec pod --version
+  - bundler exec pod setup --silent > /dev/null
+  - bundler exec pod repo update --silent
+  - xcpretty --version
   - xcodebuild -version
   - xcodebuild -showsdks
-  - xcpretty --version
 
 script:
   - set -o pipefail
 
+  - echo Check if the library described by the podspec can be built
+  - pod lib lint --allow-warnings
+
+  - echo Build as static library
+  - xcodebuild build -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "FFSafeKit_Static" -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+
   - echo Build as dynamic framework
-  - xcodebuild clean build -project "$TRAVIS_XCODE_PROJECT"  -scheme "$TRAVIS_XCODE_SCHEME" | xcpretty
+  - xcodebuild build -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "FFSafeKit" -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+
+  - echo Build the Demo apps
+  - pod install --project-directory=Demo
+  - xcodebuild build -workspace "$TRAVIS_XCODE_WORKSPACE" -scheme "FFSafeKit_Demo" -configuration Debug -destination "name=iPhone XS" | xcpretty -c
+
+  - echo Clean DerivedData
+  - rm -rf ~/Library/Developer/Xcode/DerivedData/
+  - mkdir DerivedData
+
+notifications:
+  email: false
