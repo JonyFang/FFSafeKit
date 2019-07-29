@@ -38,6 +38,9 @@
         //Exchange `replaceObjectsInRange:withObjectsFromArray:`
         [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(replaceObjectsInRange:withObjectsFromArray:) newSelector:@selector(ff_replaceMObjectsInRange:withObjectsFromArray:)];
         
+        //Exchange `objectAtIndex:`
+        [self ff_exchangeInstanceMethodOfClass:cls originalSelector:@selector(objectAtIndex:) newSelector:@selector(ff_MObjectAtIndex:)];
+        
         Class cfCls = NSClassFromString(@"__NSCFArray");
         
         //Exchange `objectAtIndexedSubscript:`
@@ -160,6 +163,24 @@
         //Crash info
         [FFSafeHelper ff_crashInfoOfException:exception];
     } @finally {
+    }
+}
+
+/**
+ Returns the object located at the specified index.
+ It's similar to `objectAtIndex:`, but it never throw exception.
+ 
+ @param index An index within the bounds of the array.
+ */
+- (id)ff_MObjectAtIndex:(NSUInteger)index {
+    id object = nil;
+    @try {
+        object = [self ff_MObjectAtIndex:index];
+    } @catch (NSException *exception) {
+        //Crash info
+        [FFSafeHelper ff_crashInfoOfException:exception];
+    } @finally {
+        return object;
     }
 }
 
